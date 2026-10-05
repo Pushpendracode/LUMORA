@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LUMORA — Premium Home Decor</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f6f3;
+      color: #171717;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      height: 72px;
+      padding: 0 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #b85c38;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 600;
+      color: #555;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #b85c38;
+    }
+
+    .header-button {
+      background: #171717;
+      color: white;
+      padding: 11px 18px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.3s;
+    }
+
+    .header-button:hover {
+      background: #b85c38;
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      min-height: 570px;
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 25px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .hero-content {
+      max-width: 600px;
+    }
+
+    .hero-label {
+      display: inline-block;
+      background: #eee9e3;
+      color: #8e4329;
+      padding: 8px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(45px, 7vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #b85c38;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 17px;
+      max-width: 520px;
+      margin-bottom: 30px;
+    }
+
+    .hero-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+
+      background: #171717;
+      color: white;
+      padding: 15px 24px;
+      border-radius: 8px;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      background: #b85c38;
+      transform: translateY(-2px);
+    }
+
+    .hero-visual {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: #ebe5df;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      position: relative;
+    }
+
+    .hero-visual::before {
+      content: "";
+      width: 300px;
+      height: 300px;
+      border: 1px solid #cfc5bc;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .hero-visual span {
+      font-size: 100px;
+      z-index: 1;
+    }
+
+    /* ================= TRUST ================= */
+
+    .trust-strip {
+      background: #171717;
+      color: white;
+    }
+
+    .trust-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px 25px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      text-align: center;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    .trust-item strong {
+      display: block;
+      color: white;
+      font-size: 15px;
+      margin-bottom: 3px;
+    }
+
+    /* ================= PRODUCTS ================= */
+
+    .products-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 25px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-heading span {
+      color: #b85c38;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      font-size: 42px;
+      letter-spacing: -1.5px;
+      margin-top: 8px;
+    }
+
+    .section-heading p {
+      color: #777;
+      max-width: 550px;
+      margin: 12px auto 0;
+    }
+
+    /* ================= PRODUCT CARD ================= */
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+    }
+
+    .product-card {
+      width: 100%;
+      max-width: 360px;
+      background: #fff;
+      border: 1px solid #e5e5e5;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      transition: 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+    }
+
+    .product-image-container {
+      height: 350px;
+      background: #f8f8f8;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image-container img {
+      transform: scale(1.08);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+
+      background: #d92d20;
+      color: white;
+
+      padding: 7px 11px;
+      border-radius: 6px;
+
+      font-size: 12px;
+      font-weight: 800;
+      z-index: 2;
+    }
+
+    .product-info {
+      padding: 24px;
+    }
+
+    .product-category {
+      color: #b85c38;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .product-info h3 {
+      font-size: 19px;
+      line-height: 1.35;
+      min-height: 52px;
+      margin-bottom: 15px;
+    }
+
+    .rating {
+      color: #e89b22;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .current-price {
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    .original-price {
+      color: #999;
+      font-size: 14px;
+      text-decoration: line-through;
+    }
+
+    .amazon-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #171717;
+      color: white;
+
+      padding: 14px 18px;
+      border-radius: 8px;
+
+      font-size: 14px;
+      font-weight: 800;
+
+      transition: 0.3s ease;
+    }
+
+    .amazon-button:hover {
+      background: #b85c38;
+      transform: translateY(-2px);
+    }
+
+    /* ================= ABOUT ================= */
+
+    .about-section {
+      background: #ebe5df;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 90px 25px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-label {
+      color: #b85c38;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .about-content h2 {
+      font-size: 45px;
+      line-height: 1.05;
+      margin: 12px 0 20px;
+    }
+
+    .about-content p {
+      color: #666;
+      margin-bottom: 15px;
+      max-width: 520px;
+    }
+
+    .about-box {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-box h3 {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: #666;
+      font-size: 14px;
+    }
+
+    /* ================= DISCLOSURE ================= */
+
+    .disclosure {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 40px 25px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .disclosure strong {
+      color: #333;
+    }
+
+    /* ================= NEWSLETTER ================= */
+
+    .newsletter {
+      background: #171717;
+      color: white;
+    }
+
+    .newsletter-container {
+      max-width: 800px;
+      margin: auto;
+      padding: 75px 25px;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .newsletter p {
+      color: #aaa;
+      margin-bottom: 25px;
+    }
+
+    .newsletter-form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      background: white;
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 12px;
+      font-size: 14px;
+    }
+
+    .newsletter-form button {
+      border: none;
+      background: #b85c38;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #101010;
+      color: white;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 25px 30px;
+
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+    }
+
+    .footer-brand p {
+      color: #888;
+      max-width: 350px;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-column h4 {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .footer-column a {
+      display: block;
+      color: #888;
+      font-size: 13px;
+      margin-bottom: 10px;
+      transition: 0.3s;
+    }
+
+    .footer-column a:hover {
+      color: white;
+    }
+
+    .copyright {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px 25px;
+      border-top: 1px solid #292929;
+      color: #666;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    /* ================= CHATBOT ================= */
+
+    .chat-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+
+      width: 55px;
+      height: 55px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: #171717;
+      color: white;
+
+      font-size: 22px;
+      cursor: pointer;
+
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+    }
+
+    .chat-box {
+      display: none;
+
+      position: fixed;
+      right: 22px;
+      bottom: 90px;
+
+      width: 310px;
+      background: white;
+
+      border-radius: 14px;
+      overflow: hidden;
+
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+      z-index: 100;
+    }
+
+    .chat-header {
+      background: #171717;
+      color: white;
+      padding: 16px;
+      font-weight: 800;
+    }
+
+    .chat-body {
+      padding: 18px;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .chat-body p {
+      margin-bottom: 10px;
+    }
+
+    .chat-body strong {
+      color: #171717;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media (max-width: 850px) {
+      nav {
+        display: none;
+      }
+
+      .hero {
+        text-align: center;
+        flex-direction: column;
+        padding-top: 70px;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-visual {
+        width: 300px;
+        height: 300px;
+      }
+
+      .hero-visual::before {
+        width: 220px;
+        height: 220px;
+      }
+
+      .hero-visual span {
+        font-size: 70px;
+      }
+
+      .trust-container {
+        grid-template-columns: 1fr;
+      }
+
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .navbar {
+        padding: 0 18px;
+      }
+
+      .header-button {
+        padding: 9px 12px;
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 60px 18px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-visual {
+        width: 250px;
+        height: 250px;
+      }
+
+      .products-section {
+        padding: 65px 18px;
+      }
+
+      .section-heading h2 {
+        font-size: 34px;
+      }
+
+      .product-image-container {
+        height: 310px;
+      }
+
+      .about-container {
+        padding: 65px 18px;
+      }
+
+      .about-content h2 {
+        font-size: 35px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        background: transparent;
+        gap: 8px;
+      }
+
+      .newsletter-form input,
+      .newsletter-form button {
+        width: 100%;
+        border-radius: 7px;
+      }
+
+      .chat-box {
+        right: 12px;
+        bottom: 85px;
+        width: calc(100% - 24px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+
+  <header>
+    <div class="navbar">
+
+      <a href="#" class="logo">
+        LUMO<span>RA</span>
+      </a>
+
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#product">Product</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a href="#product" class="header-button">
+        Explore Product
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero" id="home">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        CURATED HOME DECOR
+      </span>
+
+      <h1>
+        Make Your<br />
+        Space <span>Beautiful.</span>
+      </h1>
+
+      <p>
+        Discover carefully selected decorative pieces that bring
+        personality, character and modern elegance into your home.
+      </p>
+
+      <a href="#product" class="hero-button">
+        Discover Our Pick →
+      </a>
+
+    </div>
+
+    <div class="hero-visual">
+      <span>✦</span>
+    </div>
+
+  </section>
+
+
+  <!-- ================= TRUST ================= -->
+
+  <section class="trust-strip">
+
+    <div class="trust-container">
+
+      <div class="trust-item">
+        <strong>✦ Curated Products</strong>
+        Hand-picked home decor
+      </div>
+
+      <div class="trust-item">
+        <strong>✓ Trusted Marketplace</strong>
+        Shop through trusted retailers
+      </div>
+
+      <div class="trust-item">
+        <strong>↗ Best Deals</strong>
+        Find products worth buying
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PRODUCT ================= -->
+
+  <section class="products-section" id="product">
+
+    <div class="section-heading">
+
+      <span>Featured Pick</span>
+
+      <h2>One Piece. Big Impact.</h2>
+
+      <p>
+        A statement decorative piece selected for modern,
+        stylish and aesthetic interiors.
+      </p>
+
+    </div>
+
+
+    <div class="product-grid">
+
+      <div class="product-card">
+
+        <div class="product-image-container">
+
+          <span class="discount-badge">
+            -34% OFF
+          </span>
+
+          <img
+            src="https://m.media-amazon.com/images/I/81QVZh7vUzL._SL1500_.jpg"
+            alt="BEHOMA Metal Bull Decorative Figurine Showpiece"
+          />
+
+        </div>
+
+
+        <div class="product-info">
+
+          <div class="product-category">
+            Home Decor
+          </div>
+
+          <h3>
+            BEHOMA Metal Bull Decorative Figurine Showpiece
+          </h3>
+
+          <div class="rating">
+            ★★★★★
+          </div>
+
+          <div class="price-row">
+
+            <span class="current-price">
+              ₹996
+            </span>
+
+            <span class="original-price">
+              ₹1,499
+            </span>
+
+          </div>
+
+          <a
+            href="https://link.amazon/B0jlfR0gR"
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            class="amazon-button"
+          >
+            View on Amazon →
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= ABOUT ================= -->
+
+  <section class="about-section" id="about">
+
+    <div class="about-container">
+
+      <div class="about-content">
+
+        <span class="about-label">
+          About Lumora
+        </span>
+
+        <h2>
+          Decor that<br />
+          speaks for you.
+        </h2>
+
+        <p>
+          LUMORA is built around one simple idea:
+          finding beautiful products shouldn't be complicated.
+        </p>
+
+        <p>
+          We curate interesting home decor products and
+          connect you with trusted marketplaces where you
+          can explore and purchase them.
+        </p>
+
+      </div>
+
+
+      <div class="about-box">
+
+        <h3>
+          Why this product?
+        </h3>
+
+        <p>
+          The BEHOMA Metal Bull Decorative Figurine is designed
+          as a statement accent for shelves, cabinets, tables,
+          offices and modern living spaces.
+        </p>
+
+        <br />
+
+        <p>
+          Its bold metallic appearance can add a premium,
+          artistic character to otherwise simple interiors.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= AFFILIATE DISCLOSURE ================= -->
+
+  <div class="disclosure">
+
+    <strong>Affiliate Disclosure:</strong>
+    LUMORA may earn a commission when you purchase a product
+    through our affiliate links. This does not change the price
+    you pay. Product prices and availability are determined by
+    the retailer.
+
+  </div>
+
+
+  <!-- ================= NEWSLETTER ================= -->
+
+  <section class="newsletter" id="contact">
+
+    <div class="newsletter-container">
+
+      <h2>
+        Stay Inspired.
+      </h2>
+
+      <p>
+        Get curated home decor finds and interesting products
+        directly in your inbox.
+      </p>
+
+      <form
+        class="newsletter-form"
+        onsubmit="subscribeUser(event)"
+      >
+
+        <input
+          type="email"
+          placeholder="Enter your email address"
+          required
+        />
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <div class="footer-container">
+
+      <div class="footer-brand">
+
+        <div class="logo">
+          LUMO<span>RA</span>
+        </div>
+
+        <p>
+          Curating modern home decor and aesthetic products
+          for people who love beautiful spaces.
+        </p>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Explore</h4>
+
+        <a href="#home">Home</a>
+        <a href="#product">Featured Product</a>
+        <a href="#about">About</a>
+
+      </div>
+
+
+      <div class="footer-column">
+
+        <h4>Information</h4>
+
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#contact">Contact</a>
+
+      </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+      © 2026 LUMORA. All rights reserved.
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= CHATBOT ================= -->
+
+  <div class="chat-box" id="chatBox">
+
+    <div class="chat-header">
+      LUMORA Assistant
+    </div>
+
+    <div class="chat-body">
+
+      <p>
+        👋 Hi! Welcome to <strong>LUMORA</strong>.
+      </p>
+
+      <p>
+        Looking for a stylish home decor piece?
+      </p>
+
+      <p>
+        Our featured pick is the
+        <strong>BEHOMA Metal Bull Decorative Figurine</strong>.
+      </p>
+
+      <p>
+        You can check the latest price and availability
+        directly on Amazon.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <button
+    class="chat-button"
+    onclick="toggleChat()"
+    aria-label="Open chat"
+  >
+    💬
+  </button>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    function toggleChat() {
+
+      const chatBox = document.getElementById("chatBox");
+
+      if (chatBox.style.display === "block") {
+        chatBox.style.display = "none";
+      } else {
+        chatBox.style.display = "block";
+      }
+
+    }
+
+
+    function subscribeUser(event) {
+
+      event.preventDefault();
+
+      const email = event.target.querySelector("input").value;
+
+      alert(
+        "Thanks for subscribing! We will send updates to " + email
+      );
+
+      event.target.reset();
+
+    }
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+
+      link.addEventListener("click", function(event) {
+
+        const target = document.querySelector(
+          this.getAttribute("href")
+        );
+
+        if (target) {
+
+          event.preventDefault();
+
+          target.scrollIntoView({
+            behavior: "smooth"
+          });
+
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
