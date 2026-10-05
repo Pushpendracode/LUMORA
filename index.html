@@ -2,10 +2,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>LUMORA — Premium Home Decor</title>
+
+  <meta
+    name="description"
+    content="Discover premium home decor, aesthetic accents and modern interior styling pieces with LUMORA."
+  >
 
   <style>
     * {
@@ -20,9 +25,9 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7f6f3;
+      background: #f8f7f4;
       color: #171717;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     a {
@@ -30,22 +35,30 @@
       color: inherit;
     }
 
-    /* ================= HEADER ================= */
+    button,
+    input,
+    select {
+      font: inherit;
+    }
 
-    header {
+    /* =========================
+       HEADER
+    ========================= */
+
+    .header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e8e8e8;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid #e8e5df;
     }
 
-    .navbar {
-      max-width: 1200px;
-      height: 72px;
+    .nav-container {
+      max-width: 1250px;
       margin: auto;
-      padding: 0 25px;
+      height: 76px;
+      padding: 0 24px;
 
       display: flex;
       align-items: center;
@@ -54,863 +67,1019 @@
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 26px;
       font-weight: 900;
-      letter-spacing: 2px;
+      letter-spacing: 4px;
     }
 
     .logo span {
-      color: #b85c38;
+      color: #a45d43;
     }
 
-    nav {
+    .nav-links {
       display: flex;
       align-items: center;
       gap: 30px;
     }
 
-    nav a {
+    .nav-links a {
       font-size: 14px;
       font-weight: 600;
-      color: #555;
-      transition: 0.3s;
+      color: #444;
+      transition: 0.25s;
     }
 
-    nav a:hover {
-      color: #b85c38;
+    .nav-links a:hover {
+      color: #a45d43;
     }
 
-    .header-button {
-      background: #171717;
-      color: white;
-      padding: 11px 18px;
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 700;
-      transition: 0.3s;
-    }
-
-    .header-button:hover {
-      background: #b85c38;
-    }
-
-    /* ================= HERO ================= */
-
-    .hero {
-      max-width: 1200px;
-      min-height: 570px;
-      margin: auto;
-      padding: 90px 25px;
-
+    .nav-actions {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border: 1px solid #dedbd5;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.25s;
+      position: relative;
+    }
+
+    .icon-btn:hover {
+      background: #171717;
+      color: white;
+    }
+
+    .wishlist-count {
+      position: absolute;
+      top: -4px;
+      right: -2px;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border-radius: 20px;
+      background: #a45d43;
+      color: white;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      max-width: 1250px;
+      min-height: 610px;
+      margin: auto;
+      padding: 70px 24px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
       gap: 60px;
     }
 
     .hero-content {
-      max-width: 600px;
+      max-width: 620px;
     }
 
-    .hero-label {
-      display: inline-block;
-      background: #eee9e3;
-      color: #8e4329;
-
-      padding: 8px 13px;
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 14px;
+      background: #eee8e1;
+      color: #8d4d37;
       border-radius: 30px;
-
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 1px;
-
-      margin-bottom: 20px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
     }
 
     .hero h1 {
-      font-size: clamp(45px, 7vw, 76px);
+      font-size: clamp(48px, 6vw, 82px);
       line-height: 0.98;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
+      letter-spacing: -4px;
+      margin-bottom: 26px;
     }
 
     .hero h1 span {
-      color: #b85c38;
+      color: #a45d43;
     }
 
     .hero p {
-      max-width: 520px;
-      margin-bottom: 30px;
-
+      max-width: 530px;
       color: #666;
-      font-size: 17px;
+      font-size: 18px;
+      margin-bottom: 32px;
     }
 
-    .hero-button {
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .primary-btn,
+    .secondary-btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-
-      background: #171717;
-      color: white;
-
-      padding: 15px 24px;
+      justify-content: center;
+      padding: 14px 24px;
       border-radius: 8px;
-
-      font-size: 14px;
       font-weight: 700;
-
-      transition: 0.3s;
+      transition: 0.25s;
     }
 
-    .hero-button:hover {
-      background: #b85c38;
+    .primary-btn {
+      background: #171717;
+      color: white;
+    }
+
+    .primary-btn:hover {
       transform: translateY(-2px);
+      background: #a45d43;
+    }
+
+    .secondary-btn {
+      border: 1px solid #ccc7c0;
+      background: white;
+    }
+
+    .secondary-btn:hover {
+      border-color: #171717;
     }
 
     .hero-visual {
-      width: 420px;
-      height: 420px;
-      flex-shrink: 0;
-
-      border-radius: 50%;
-      background: #ebe5df;
-
+      height: 500px;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(0,0,0,0.05),
+          rgba(164,93,67,0.12)
+        );
       display: flex;
       align-items: center;
       justify-content: center;
-
-      position: relative;
     }
 
-    .hero-visual::before {
-      content: "";
-
-      position: absolute;
-
-      width: 300px;
-      height: 300px;
-
-      border: 1px solid #cfc5bc;
+    .hero-circle {
+      width: 350px;
+      height: 350px;
       border-radius: 50%;
+      background: #ded2c7;
+      position: absolute;
     }
 
-    .hero-visual span {
+    .hero-decoration {
+      width: 280px;
+      height: 360px;
+      border-radius: 160px 160px 30px 30px;
+      background: linear-gradient(145deg, #a45d43, #5e3022);
       position: relative;
-      z-index: 1;
-
-      font-size: 100px;
-      color: #b85c38;
+      z-index: 2;
+      transform: rotate(-8deg);
+      box-shadow: 30px 30px 80px rgba(0,0,0,0.15);
     }
 
-    /* ================= TRUST ================= */
+    .hero-decoration::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 14px solid rgba(255,255,255,0.2);
+      top: 80px;
+      left: 80px;
+    }
 
-    .trust-strip {
+    .hero-decoration::after {
+      content: "L";
+      position: absolute;
+      color: rgba(255,255,255,0.85);
+      font-size: 90px;
+      font-weight: 900;
+      left: 100px;
+      top: 190px;
+    }
+
+    /* =========================
+       TRUST BAR
+    ========================= */
+
+    .trust-section {
       background: #171717;
       color: white;
     }
 
-    .trust-container {
-      max-width: 1200px;
+    .trust-grid {
+      max-width: 1250px;
       margin: auto;
-      padding: 24px 25px;
+      padding: 22px 24px;
 
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
     .trust-item {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-      font-size: 13px;
-      color: #aaa;
+    .trust-icon {
+      font-size: 22px;
     }
 
     .trust-item strong {
       display: block;
-
-      color: white;
-      font-size: 15px;
-
-      margin-bottom: 3px;
+      font-size: 13px;
     }
 
-    /* ================= PRODUCTS ================= */
+    .trust-item span {
+      display: block;
+      color: #aaa;
+      font-size: 11px;
+    }
 
-    .products-section {
-      max-width: 1200px;
+    /* =========================
+       SECTION
+    ========================= */
+
+    .section {
+      max-width: 1250px;
       margin: auto;
-      padding: 90px 25px;
+      padding: 90px 24px;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 50px;
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 35px;
     }
 
-    .section-heading span {
-      color: #b85c38;
-
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .section-heading h2 {
+    .section-header h2 {
       font-size: 42px;
       letter-spacing: -1.5px;
-
-      margin-top: 8px;
     }
 
-    .section-heading p {
-      max-width: 560px;
-      margin: 12px auto 0;
-
+    .section-header p {
       color: #777;
+      max-width: 500px;
     }
 
-    /* ================= PRODUCT GRID ================= */
+    /* =========================
+       CATEGORIES
+    ========================= */
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .category-card {
+      min-height: 170px;
+      background: white;
+      border: 1px solid #e6e2dc;
+      border-radius: 18px;
+      padding: 24px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      cursor: pointer;
+      transition: 0.3s;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .category-card::before {
+      content: "";
+      width: 110px;
+      height: 110px;
+      background: #eee6df;
+      border-radius: 50%;
+      position: absolute;
+      top: -25px;
+      right: -20px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+    }
+
+    .category-icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .category-card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 17px;
+    }
+
+    .category-card p {
+      color: #888;
+      font-size: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =========================
+       SHOP TOOLBAR
+    ========================= */
+
+    .shop-toolbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 1px solid #ddd8d1;
+      border-radius: 8px;
+      outline: none;
+      background: white;
+    }
+
+    .search-box input:focus {
+      border-color: #a45d43;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .filter-group select {
+      padding: 13px 16px;
+      border: 1px solid #ddd8d1;
+      border-radius: 8px;
+      background: white;
+      outline: none;
+    }
+
+    /* =========================
+       PRODUCTS
+    ========================= */
 
     .product-grid {
       display: grid;
-
       grid-template-columns: repeat(4, 1fr);
-
       gap: 22px;
     }
 
-    /* ================= PRODUCT CARD ================= */
-
     .product-card {
-      position: relative;
-
-      background: #ffffff;
-
-      border: 1px solid #e5e5e5;
-      border-radius: 16px;
-
+      background: white;
+      border: 1px solid #e7e3dd;
+      border-radius: 18px;
       overflow: hidden;
-
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+      position: relative;
+      transition: 0.3s;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-
-      box-shadow:
-        0 20px 45px rgba(0, 0, 0, 0.12);
+      transform: translateY(-7px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.09);
     }
 
-    /* ================= PRODUCT IMAGE ================= */
-
     .product-image {
-      position: relative;
-
-      width: 100%;
-      height: 300px;
-
-      background: #f8f8f8;
-
+      height: 270px;
+      background: #f4f1ed;
       overflow: hidden;
+      position: relative;
     }
 
     .product-image img {
       width: 100%;
       height: 100%;
-
-      display: block;
-
       object-fit: contain;
-
-      transition: transform 0.5s ease;
+      display: block;
+      transition: transform 0.55s ease;
     }
 
     .product-card:hover .product-image img {
       transform: scale(1.08);
     }
 
-    /* ================= BADGE ================= */
-
-    .badge {
+    .discount-badge {
       position: absolute;
-
       top: 14px;
       left: 14px;
-
-      z-index: 5;
-
-      background: #d92d20;
+      background: #c83d32;
       color: white;
-
-      padding: 7px 10px;
-
+      padding: 6px 10px;
       border-radius: 6px;
-
       font-size: 11px;
       font-weight: 800;
-
-      letter-spacing: 0.3px;
+      z-index: 2;
     }
 
-    /* ================= PRODUCT INFO ================= */
+    .wishlist-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      background: rgba(255,255,255,0.95);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 17px;
+      z-index: 2;
+      transition: 0.2s;
+    }
+
+    .wishlist-btn:hover {
+      transform: scale(1.08);
+    }
 
     .product-info {
-      padding: 21px;
+      padding: 20px;
     }
 
     .product-category {
-      color: #b85c38;
-
+      color: #a45d43;
       font-size: 10px;
       font-weight: 800;
-
       text-transform: uppercase;
-      letter-spacing: 1.2px;
-
-      margin-bottom: 8px;
+      letter-spacing: 1px;
+      margin-bottom: 7px;
     }
 
     .product-info h3 {
-      font-size: 17px;
+      font-size: 16px;
       line-height: 1.35;
-
-      min-height: 47px;
-
-      margin-bottom: 13px;
-    }
-
-    .rating {
-      color: #e59a20;
-
-      font-size: 13px;
-
+      min-height: 44px;
       margin-bottom: 12px;
     }
 
-    /* ================= PRICE ================= */
+    .rating {
+      font-size: 12px;
+      color: #c38b2c;
+      margin-bottom: 12px;
+    }
 
     .price-container {
       display: flex;
       align-items: center;
       gap: 9px;
-
-      margin-bottom: 18px;
+      margin-bottom: 17px;
+      flex-wrap: wrap;
     }
 
     .current-price {
-      color: #171717;
-
-      font-size: 23px;
+      font-size: 20px;
       font-weight: 900;
     }
 
     .old-price {
       color: #999;
-
-      font-size: 13px;
-
       text-decoration: line-through;
+      font-size: 13px;
     }
-
-    /* ================= AFFILIATE BUTTON ================= */
 
     .affiliate-btn {
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       width: 100%;
-
-      padding: 13px 14px;
-
+      padding: 13px;
       background: #171717;
       color: white;
-
       border-radius: 8px;
-
       font-size: 13px;
       font-weight: 800;
-
-      transition: 0.3s ease;
+      transition: 0.25s;
     }
 
     .affiliate-btn:hover {
-      background: #b85c38;
-
-      transform: translateY(-2px);
+      background: #a45d43;
+      transform: translateY(-1px);
     }
 
-    /* ================= ABOUT ================= */
+    /* =========================
+       FEATURES
+    ========================= */
 
-    .about-section {
-      background: #ebe5df;
+    .feature-section {
+      background: #eee9e3;
     }
 
-    .about-container {
-      max-width: 1200px;
+    .feature-grid {
+      max-width: 1250px;
       margin: auto;
-
-      padding: 90px 25px;
+      padding: 85px 24px;
 
       display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
 
-      grid-template-columns: 1fr 1fr;
+    .feature-card {
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      border: 1px solid #ddd7cf;
+    }
 
+    .feature-icon {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 70px;
-
       align-items: center;
     }
 
-    .about-label {
-      color: #b85c38;
+    .about-image {
+      min-height: 430px;
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at 30% 30%, #c9a894, transparent 25%),
+        radial-gradient(circle at 70% 60%, #a45d43, transparent 30%),
+        #211b18;
+      position: relative;
+      overflow: hidden;
+    }
 
-      font-size: 12px;
-      font-weight: 800;
+    .about-image::before,
+    .about-image::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
 
-      letter-spacing: 2px;
-      text-transform: uppercase;
+    .about-image::before {
+      width: 350px;
+      height: 350px;
+      left: -100px;
+      top: 80px;
+    }
+
+    .about-image::after {
+      width: 250px;
+      height: 250px;
+      right: -70px;
+      top: -30px;
     }
 
     .about-content h2 {
       font-size: 45px;
       line-height: 1.05;
-
-      margin: 12px 0 20px;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
     }
 
     .about-content p {
-      max-width: 520px;
-
-      color: #666;
-
-      margin-bottom: 15px;
+      color: #707070;
+      margin-bottom: 16px;
     }
 
-    .about-box {
-      background: white;
-
-      padding: 40px;
-
-      border-radius: 16px;
-
-      box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.08);
-    }
-
-    .about-box h3 {
-      font-size: 22px;
-
-      margin-bottom: 15px;
-    }
-
-    .about-box p {
-      color: #666;
-
-      font-size: 14px;
-    }
-
-    /* ================= DISCLOSURE ================= */
+    /* =========================
+       DISCLOSURE
+    ========================= */
 
     .disclosure {
-      max-width: 850px;
-
-      margin: auto;
-
-      padding: 40px 25px;
-
+      max-width: 900px;
+      margin: 0 auto 70px;
+      padding: 20px 24px;
+      background: #fff8ed;
+      border: 1px solid #ead9bc;
+      border-radius: 12px;
       text-align: center;
-
-      color: #777;
-
+      color: #765f43;
       font-size: 12px;
     }
 
-    .disclosure strong {
-      color: #333;
-    }
-
-    /* ================= NEWSLETTER ================= */
+    /* =========================
+       NEWSLETTER
+    ========================= */
 
     .newsletter {
+      max-width: 900px;
+      margin: auto;
       background: #171717;
       color: white;
-    }
-
-    .newsletter-container {
-      max-width: 800px;
-
-      margin: auto;
-
-      padding: 75px 25px;
-
+      border-radius: 25px;
+      padding: 55px 30px;
       text-align: center;
     }
 
     .newsletter h2 {
-      font-size: 38px;
-
+      font-size: 35px;
       margin-bottom: 10px;
     }
 
     .newsletter p {
       color: #aaa;
-
       margin-bottom: 25px;
     }
 
     .newsletter-form {
-      max-width: 500px;
-
+      max-width: 550px;
       margin: auto;
-
       display: flex;
-
-      background: white;
-
-      padding: 5px;
-
-      border-radius: 8px;
+      gap: 10px;
     }
 
     .newsletter-form input {
       flex: 1;
-
-      border: none;
+      padding: 15px;
+      border-radius: 7px;
+      border: 0;
       outline: none;
-
-      padding: 12px;
-
-      font-size: 14px;
     }
 
     .newsletter-form button {
-      border: none;
-
-      background: #b85c38;
+      padding: 15px 22px;
+      border: 0;
+      border-radius: 7px;
+      background: #a45d43;
       color: white;
-
-      padding: 12px 20px;
-
-      border-radius: 6px;
-
-      font-weight: 700;
-
+      font-weight: 800;
       cursor: pointer;
     }
 
-    /* ================= FOOTER ================= */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #101010;
-
+      margin-top: 80px;
+      background: #111;
       color: white;
     }
 
     .footer-container {
-      max-width: 1200px;
-
+      max-width: 1250px;
       margin: auto;
+      padding: 65px 24px 25px;
+    }
 
-      padding: 60px 25px 30px;
-
+    .footer-grid {
       display: grid;
-
-      grid-template-columns: 2fr 1fr 1fr;
-
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 50px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid #292929;
     }
 
     .footer-brand p {
-      max-width: 350px;
-
       color: #888;
-
+      max-width: 350px;
       margin-top: 15px;
-
       font-size: 14px;
     }
 
     .footer-column h4 {
       margin-bottom: 15px;
-
-      font-size: 14px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .footer-column a {
       display: block;
-
       color: #888;
-
       font-size: 13px;
-
-      margin-bottom: 10px;
-
-      transition: 0.3s;
+      margin-bottom: 9px;
+      transition: 0.2s;
     }
 
     .footer-column a:hover {
       color: white;
     }
 
-    .copyright {
-      max-width: 1200px;
-
-      margin: auto;
-
-      padding: 20px 25px;
-
-      border-top: 1px solid #292929;
-
+    .footer-bottom {
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
       color: #666;
-
       font-size: 12px;
-
-      text-align: center;
     }
 
-    /* ================= CHATBOT ================= */
+    /* =========================
+       CHATBOT
+    ========================= */
 
     .chat-button {
       position: fixed;
-
-      right: 22px;
-      bottom: 22px;
-
-      width: 55px;
-      height: 55px;
-
-      border: none;
+      right: 25px;
+      bottom: 25px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
-
+      border: 0;
       background: #171717;
       color: white;
-
-      font-size: 22px;
-
+      font-size: 23px;
       cursor: pointer;
-
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.2);
-
-      z-index: 100;
+      z-index: 2000;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
-    .chat-box {
-      display: none;
-
+    .chat-window {
       position: fixed;
-
-      right: 22px;
-      bottom: 90px;
-
-      width: 310px;
-
+      right: 25px;
+      bottom: 95px;
+      width: 330px;
       background: white;
-
-      border-radius: 14px;
-
+      border: 1px solid #ddd;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18);
       overflow: hidden;
+      display: none;
+      z-index: 2000;
+    }
 
-      box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.2);
-
-      z-index: 100;
+    .chat-window.active {
+      display: block;
     }
 
     .chat-header {
+      padding: 18px;
       background: #171717;
       color: white;
-
-      padding: 16px;
-
       font-weight: 800;
     }
 
     .chat-body {
       padding: 18px;
-
-      font-size: 13px;
-
-      color: #555;
     }
 
-    .chat-body p {
+    .chat-message {
+      background: #f3f1ee;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 13px;
       margin-bottom: 10px;
     }
 
-    .chat-body strong {
-      color: #171717;
+    .chat-options button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 7px;
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 7px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 12px;
     }
 
-    /* ================= RESPONSIVE ================= */
+    .chat-options button:hover {
+      border-color: #a45d43;
+    }
+
+    /* =========================
+       EMPTY STATE
+    ========================= */
+
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 50px 20px;
+      color: #777;
+      grid-column: 1 / -1;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
 
     @media (max-width: 1050px) {
-
       .product-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .hero-visual {
-        width: 350px;
-        height: 350px;
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .hero-visual::before {
-        width: 260px;
-        height: 260px;
-      }
-    }
-
-    @media (max-width: 850px) {
-
-      nav {
+      .nav-links {
         display: none;
       }
 
       .hero {
-        text-align: center;
-
-        flex-direction: column;
-
-        padding-top: 70px;
-      }
-
-      .hero-content {
-        max-width: 650px;
-      }
-
-      .hero p {
-        margin-left: auto;
-        margin-right: auto;
+        grid-template-columns: 1fr;
       }
 
       .hero-visual {
-        width: 300px;
-        height: 300px;
-      }
-
-      .hero-visual::before {
-        width: 220px;
-        height: 220px;
-      }
-
-      .hero-visual span {
-        font-size: 75px;
-      }
-
-      .trust-container {
-        grid-template-columns: 1fr;
-      }
-
-      .about-container {
-        grid-template-columns: 1fr;
-
-        gap: 40px;
-      }
-
-      .footer-container {
-        grid-template-columns: 1fr;
+        height: 400px;
       }
     }
 
-    @media (max-width: 600px) {
-
-      .navbar {
-        padding: 0 18px;
+    @media (max-width: 760px) {
+      .nav-container {
+        height: 65px;
+        padding: 0 16px;
       }
 
       .logo {
-        font-size: 22px;
-      }
-
-      .header-button {
-        padding: 9px 12px;
-
-        font-size: 11px;
+        font-size: 21px;
       }
 
       .hero {
-        padding: 60px 18px;
+        padding: 55px 18px;
       }
 
       .hero h1 {
-        font-size: 48px;
+        font-size: 52px;
+        letter-spacing: -3px;
       }
 
       .hero p {
-        font-size: 15px;
+        font-size: 16px;
       }
 
       .hero-visual {
+        height: 350px;
+      }
+
+      .hero-circle {
         width: 250px;
         height: 250px;
       }
 
-      .hero-visual::before {
+      .hero-decoration {
         width: 190px;
-        height: 190px;
+        height: 260px;
       }
 
-      .hero-visual span {
-        font-size: 65px;
+      .hero-decoration::before {
+        width: 80px;
+        height: 80px;
+        left: 55px;
+        top: 55px;
       }
 
-      .products-section {
+      .hero-decoration::after {
+        font-size: 60px;
+        left: 67px;
+        top: 135px;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px 18px;
+      }
+
+      .section {
         padding: 65px 18px;
       }
 
-      .section-heading h2 {
-        font-size: 34px;
+      .section-header {
+        display: block;
       }
 
-      .section-heading p {
+      .section-header h2 {
+        font-size: 34px;
+        margin-bottom: 10px;
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+      }
+
+      .product-image {
+        height: 210px;
+      }
+
+      .product-info {
+        padding: 15px;
+      }
+
+      .product-info h3 {
         font-size: 14px;
       }
 
+      .current-price {
+        font-size: 17px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+        padding: 65px 18px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .about-image {
+        min-height: 300px;
+      }
+
+      .about-content h2 {
+        font-size: 38px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 470px) {
       .product-grid {
         grid-template-columns: 1fr;
       }
 
       .product-image {
-        height: 330px;
+        height: 280px;
       }
 
-      .about-container {
-        padding: 65px 18px;
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
-      .about-content h2 {
-        font-size: 35px;
+      .trust-grid {
+        grid-template-columns: 1fr;
       }
 
-      .newsletter-form {
-        flex-direction: column;
-
-        background: transparent;
-
-        gap: 8px;
+      .nav-actions .icon-btn:nth-child(1) {
+        display: none;
       }
 
-      .newsletter-form input,
-      .newsletter-form button {
-        width: 100%;
-
-        border-radius: 7px;
-      }
-
-      .chat-box {
+      .chat-window {
         right: 12px;
         bottom: 85px;
-
         width: calc(100% - 24px);
+      }
+
+      .chat-button {
+        right: 15px;
+        bottom: 15px;
       }
     }
   </style>
@@ -918,533 +1087,771 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- =========================
+       HEADER
+  ========================= -->
 
-  <header>
+  <header class="header">
+    <div class="nav-container">
 
-    <div class="navbar">
-
-      <a href="#home" class="logo">
+      <a href="#" class="logo">
         LUMO<span>RA</span>
       </a>
 
-      <nav>
+      <nav class="nav-links">
         <a href="#home">Home</a>
-        <a href="#products">Products</a>
+        <a href="#shop">Shop</a>
+        <a href="#categories">Categories</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
       </nav>
 
-      <a href="#products" class="header-button">
-        Explore Products
-      </a>
+      <div class="nav-actions">
+        <button class="icon-btn" onclick="focusSearch()" title="Search">
+          🔍
+        </button>
+
+        <button class="icon-btn" onclick="showWishlist()" title="Wishlist">
+          ♡
+          <span class="wishlist-count" id="wishlistCount">0</span>
+        </button>
+      </div>
 
     </div>
-
   </header>
 
 
-  <!-- ================= HERO ================= -->
+  <!-- =========================
+       HERO
+  ========================= -->
 
-  <section class="hero" id="home">
+  <main id="home">
 
-    <div class="hero-content">
+    <section class="hero">
 
-      <span class="hero-label">
-        CURATED HOME DECOR
-      </span>
+      <div class="hero-content">
 
-      <h1>
-        Make Your<br>
-        Space <span>Beautiful.</span>
-      </h1>
-
-      <p>
-        Discover carefully selected decorative pieces that bring
-        personality, character and modern elegance into your home.
-      </p>
-
-      <a href="#products" class="hero-button">
-        Explore Collection →
-      </a>
-
-    </div>
-
-
-    <div class="hero-visual">
-      <span>✦</span>
-    </div>
-
-  </section>
-
-
-  <!-- ================= TRUST ================= -->
-
-  <section class="trust-strip">
-
-    <div class="trust-container">
-
-      <div class="trust-item">
-        <strong>✦ Curated Products</strong>
-        Hand-picked home decor
-      </div>
-
-      <div class="trust-item">
-        <strong>✓ Trusted Marketplace</strong>
-        Shop through trusted retailers
-      </div>
-
-      <div class="trust-item">
-        <strong>↗ Great Deals</strong>
-        Discover products worth buying
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= PRODUCTS ================= -->
-
-  <section class="products-section" id="products">
-
-    <div class="section-heading">
-
-      <span>Our Collection</span>
-
-      <h2>Decor Worth Discovering.</h2>
-
-      <p>
-        Explore our hand-picked selection of statement pieces
-        designed to elevate modern interiors.
-      </p>
-
-    </div>
-
-
-    <div class="product-grid">
-
-
-      <!-- PRODUCT 1 -->
-
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <div class="badge">
-            -59% OFF
-          </div>
-
-          <img
-            src="PLACEHOLDER_IMAGE_URL"
-            alt="BEHOMA Kalpvriksha Tree of Life Showpiece"
-          >
-
-        </div>
-
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Home Decor
-          </div>
-
-          <h3>
-            BEHOMA Kalpvriksha Tree of Life Showpiece
-          </h3>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <div class="price-container">
-
-            <span class="current-price">
-              ₹949
-            </span>
-
-            <span class="old-price">
-              ₹2,299
-            </span>
-
-          </div>
-
-          <a
-            href="Insert Your Custom Affiliate Link 1 Here"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            class="affiliate-btn"
-          >
-            View on Amazon →
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 2 -->
-
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <img
-            src="PLACEHOLDER_IMAGE_URL"
-            alt="BEHOMA Metal Tiger Decorative Figurine"
-          >
-
-        </div>
-
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Home Decor
-          </div>
-
-          <h3>
-            BEHOMA Metal Tiger Decorative Figurine
-          </h3>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <div class="price-container">
-
-            <span class="current-price">
-              ₹1,599
-            </span>
-
-          </div>
-
-          <a
-            href="Insert Your Custom Affiliate Link 2 Here"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            class="affiliate-btn"
-          >
-            View on Amazon →
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 3 -->
-
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <div class="badge">
-            -81% OFF
-          </div>
-
-          <img
-            src="PLACEHOLDER_IMAGE_URL"
-            alt="Global Grabbers Meditating Buddha Showpiece"
-          >
-
-        </div>
-
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Spiritual Decor
-          </div>
-
-          <h3>
-            Global Grabbers Meditating Buddha Showpiece
-          </h3>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <div class="price-container">
-
-            <span class="current-price">
-              ₹374
-            </span>
-
-            <span class="old-price">
-              ₹2,000
-            </span>
-
-          </div>
-
-          <a
-            href="Insert Your Custom Affiliate Link 3 Here"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            class="affiliate-btn"
-          >
-            View on Amazon →
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- PRODUCT 4 -->
-
-      <div class="product-card">
-
-        <div class="product-image">
-
-          <div class="badge">
-            -62% OFF
-          </div>
-
-          <img
-            src="PLACEHOLDER_IMAGE_URL"
-            alt="Collectible India Ganesha Diya Oil Lamp"
-          >
-
-        </div>
-
-
-        <div class="product-info">
-
-          <div class="product-category">
-            Festive Decor
-          </div>
-
-          <h3>
-            Collectible India Ganesha Diya Oil Lamp
-          </h3>
-
-          <div class="rating">
-            ★★★★★
-          </div>
-
-          <div class="price-container">
-
-            <span class="current-price">
-              ₹266
-            </span>
-
-            <span class="old-price">
-              ₹699
-            </span>
-
-          </div>
-
-          <a
-            href="Insert Your Custom Affiliate Link 4 Here"
-            target="_blank"
-            rel="nofollow sponsored noopener"
-            class="affiliate-btn"
-          >
-            View on Amazon →
-          </a>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= ABOUT ================= -->
-
-  <section class="about-section" id="about">
-
-    <div class="about-container">
-
-      <div class="about-content">
-
-        <span class="about-label">
-          About LUMORA
+        <span class="eyebrow">
+          Curated Home Decor
         </span>
 
+        <h1>
+          Make Your<br>
+          Space <span>Beautiful.</span>
+        </h1>
+
+        <p>
+          Discover carefully selected decorative pieces,
+          aesthetic accents and modern objects that make
+          your home feel uniquely yours.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#shop" class="primary-btn">
+            Explore Collection →
+          </a>
+
+          <a href="#categories" class="secondary-btn">
+            Browse Categories
+          </a>
+        </div>
+
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-circle"></div>
+        <div class="hero-decoration"></div>
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST BAR
+    ========================= -->
+
+    <section class="trust-section">
+
+      <div class="trust-grid">
+
+        <div class="trust-item">
+          <div class="trust-icon">✦</div>
+          <div>
+            <strong>Curated Products</strong>
+            <span>Hand-picked decor</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">✓</div>
+          <div>
+            <strong>Trusted Stores</strong>
+            <span>Shop through verified retailers</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">↗</div>
+          <div>
+            <strong>Best Deals</strong>
+            <span>Find attractive offers</span>
+          </div>
+        </div>
+
+        <div class="trust-item">
+          <div class="trust-icon">♡</div>
+          <div>
+            <strong>Made For Your Home</strong>
+            <span>Beautiful design inspiration</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================= -->
+
+    <section class="section" id="categories">
+
+      <div class="section-header">
+        <div>
+          <span class="eyebrow">Explore</span>
+          <h2>Shop by Style</h2>
+        </div>
+
+        <p>
+          Find decorative pieces that match your personality,
+          space and interior aesthetic.
+        </p>
+      </div>
+
+      <div class="category-grid">
+
+        <div class="category-card" onclick="filterCategory('all')">
+          <div class="category-icon">🏠</div>
+          <h3>All Decor</h3>
+          <p>Explore everything</p>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('figurine')">
+          <div class="category-icon">🗿</div>
+          <h3>Figurines</h3>
+          <p>Statement pieces</p>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('spiritual')">
+          <div class="category-icon">🪷</div>
+          <h3>Spiritual</h3>
+          <p>Peaceful accents</p>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('traditional')">
+          <div class="category-icon">🪔</div>
+          <h3>Traditional</h3>
+          <p>Timeless details</p>
+        </div>
+
+        <div class="category-card" onclick="filterCategory('modern')">
+          <div class="category-icon">✨</div>
+          <h3>Modern</h3>
+          <p>Contemporary decor</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SHOP
+    ========================= -->
+
+    <section class="section" id="shop">
+
+      <div class="section-header">
+
+        <div>
+          <span class="eyebrow">Our Picks</span>
+          <h2>Featured Decor</h2>
+        </div>
+
+        <p>
+          Products selected for style, value and visual impact.
+        </p>
+
+      </div>
+
+
+      <!-- TOOLBAR -->
+
+      <div class="shop-toolbar">
+
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search decor..."
+            oninput="searchProducts()"
+          >
+        </div>
+
+        <div class="filter-group">
+
+          <select id="categoryFilter" onchange="filterProducts()">
+            <option value="all">All Categories</option>
+            <option value="figurine">Figurines</option>
+            <option value="spiritual">Spiritual</option>
+            <option value="traditional">Traditional</option>
+            <option value="modern">Modern</option>
+          </select>
+
+          <select id="sortFilter" onchange="sortProducts()">
+            <option value="default">Sort By</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="discount">Best Discount</option>
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <!-- PRODUCT GRID -->
+
+      <div class="product-grid" id="productGrid">
+
+
+        <!-- PRODUCT 1 -->
+
+        <div
+          class="product-card"
+          data-category="traditional"
+          data-price="949"
+          data-discount="59"
+          data-name="BEHOMA Kalpvriksha Tree of Life Showpiece"
+        >
+
+          <div class="product-image">
+
+            <span class="discount-badge">
+              -59% OFF
+            </span>
+
+            <button
+              class="wishlist-btn"
+              onclick="toggleWishlist(this)"
+              aria-label="Add to wishlist"
+            >
+              ♡
+            </button>
+
+            <img
+              src="https://m.media-amazon.com/images/I/71TBhGIOigL.SL1500.jpg"
+              alt="BEHOMA Kalpvriksha Tree of Life Showpiece"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-category">
+              Traditional Decor
+            </div>
+
+            <h3>
+              BEHOMA Kalpvriksha Tree of Life Showpiece
+            </h3>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-container">
+              <span class="current-price">₹949</span>
+              <span class="old-price">₹2,299</span>
+            </div>
+
+            <a
+              href="Insert Your Custom Affiliate Link 1 Here"
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="affiliate-btn"
+            >
+              View on Amazon →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 2 -->
+
+        <div
+          class="product-card"
+          data-category="figurine modern"
+          data-price="1599"
+          data-discount="0"
+          data-name="BEHOMA Metal Tiger Decorative Figurine"
+        >
+
+          <div class="product-image">
+
+            <button
+              class="wishlist-btn"
+              onclick="toggleWishlist(this)"
+              aria-label="Add to wishlist"
+            >
+              ♡
+            </button>
+
+            <img
+              src="media-amazon.com.*SL1024*.jpg"
+              alt="BEHOMA Metal Tiger Decorative Figurine"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-category">
+              Modern Figurine
+            </div>
+
+            <h3>
+              BEHOMA Metal Tiger Decorative Figurine
+            </h3>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-container">
+              <span class="current-price">₹1,599</span>
+            </div>
+
+            <a
+              href="Insert Your Custom Affiliate Link 2 Here"
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="affiliate-btn"
+            >
+              View on Amazon →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 3 -->
+
+        <div
+          class="product-card"
+          data-category="spiritual"
+          data-price="374"
+          data-discount="81"
+          data-name="Meditating Sitting Buddha Idol Statue"
+        >
+
+          <div class="product-image">
+
+            <span class="discount-badge">
+              -81% OFF
+            </span>
+
+            <button
+              class="wishlist-btn"
+              onclick="toggleWishlist(this)"
+              aria-label="Add to wishlist"
+            >
+              ♡
+            </button>
+
+            <img
+              src="media-amazon.com.*SL1500*.jpg"
+              alt="Meditating Sitting Buddha Idol Statue"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-category">
+              Spiritual Decor
+            </div>
+
+            <h3>
+              Meditating Sitting Buddha Idol Statue
+            </h3>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-container">
+              <span class="current-price">₹374</span>
+              <span class="old-price">₹2,000</span>
+            </div>
+
+            <a
+              href="Insert Your Custom Affiliate Link 3 Here"
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="affiliate-btn"
+            >
+              View on Amazon →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- PRODUCT 4 -->
+
+        <div
+          class="product-card"
+          data-category="traditional spiritual"
+          data-price="226"
+          data-discount="68"
+          data-name="Collectible India Ganesha Diya Oil Lamp"
+        >
+
+          <div class="product-image">
+
+            <span class="discount-badge">
+              -68% OFF
+            </span>
+
+            <button
+              class="wishlist-btn"
+              onclick="toggleWishlist(this)"
+              aria-label="Add to wishlist"
+            >
+              ♡
+            </button>
+
+            <img
+              src="media-amazon.com.*SX679*.jpg"
+              alt="Collectible India Ganesha Diya Oil Lamp"
+              loading="lazy"
+            >
+
+          </div>
+
+          <div class="product-info">
+
+            <div class="product-category">
+              Traditional Decor
+            </div>
+
+            <h3>
+              Collectible India Ganesha Diya Oil Lamp
+            </h3>
+
+            <div class="rating">
+              ★★★★★
+            </div>
+
+            <div class="price-container">
+              <span class="current-price">₹226</span>
+              <span class="old-price">₹699</span>
+            </div>
+
+            <a
+              href="Insert Your Custom Affiliate Link 4 Here"
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              class="affiliate-btn"
+            >
+              View on Amazon →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div class="empty-state" id="emptyState">
+          <h3>No products found</h3>
+          <p>Try another search or category.</p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURES
+    ========================= -->
+
+    <section class="feature-section">
+
+      <div class="feature-grid">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            ✦
+          </div>
+
+          <h3>
+            Curated With Taste
+          </h3>
+
+          <p>
+            We focus on decorative pieces that can
+            instantly elevate your space without making
+            it feel overcrowded.
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            🔎
+          </div>
+
+          <h3>
+            Discover Better
+          </h3>
+
+          <p>
+            Browse carefully selected products instead
+            of spending hours searching through endless
+            marketplace listings.
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">
+            ♡
+          </div>
+
+          <h3>
+            Your Style Matters
+          </h3>
+
+          <p>
+            From traditional accents to modern statement
+            pieces, discover decor that fits your personal
+            aesthetic.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
+    <section class="section" id="about">
+
+      <div class="about">
+
+        <div class="about-image"></div>
+
+        <div class="about-content">
+
+          <span class="eyebrow">
+            About LUMORA
+          </span>
+
+          <h2>
+            Beautiful spaces
+            start with small details.
+          </h2>
+
+          <p>
+            LUMORA is a curated home-decor discovery platform
+            designed for people who care about how their space
+            looks and feels.
+          </p>
+
+          <p>
+            Instead of overwhelming you with thousands of
+            products, we highlight decorative pieces that
+            deserve attention.
+          </p>
+
+          <a href="#shop" class="primary-btn">
+            Explore Products →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         AFFILIATE DISCLOSURE
+    ========================= -->
+
+    <div class="disclosure">
+
+      <strong>Affiliate Disclosure:</strong>
+      LUMORA may earn a commission when you purchase
+      products through qualifying affiliate links.
+      This does not affect the price you pay.
+
+    </div>
+
+
+    <!-- =========================
+         NEWSLETTER
+    ========================= -->
+
+    <section class="section">
+
+      <div class="newsletter">
+
         <h2>
-          Decor that<br>
-          speaks for you.
+          Get inspired.
         </h2>
 
         <p>
-          LUMORA is built around one simple idea:
-          finding beautiful products shouldn't be complicated.
+          Receive new decor finds, styling inspiration
+          and selected deals in your inbox.
         </p>
 
-        <p>
-          We curate interesting home decor products and connect
-          you with trusted marketplaces where you can explore
-          and purchase them.
-        </p>
-
-      </div>
-
-
-      <div class="about-box">
-
-        <h3>
-          Our Philosophy
-        </h3>
-
-        <p>
-          Your home should reflect your personality. That's why
-          we focus on unique decorative pieces that can turn
-          ordinary spaces into something memorable.
-        </p>
-
-        <br>
-
-        <p>
-          From statement figurines to spiritual decor and
-          traditional accents, every product is selected with
-          style and character in mind.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ================= AFFILIATE DISCLOSURE ================= -->
-
-  <div class="disclosure">
-
-    <strong>Affiliate Disclosure:</strong>
-
-    LUMORA may earn a commission when you purchase a product
-    through our affiliate links. This does not change the price
-    you pay. Product prices, discounts and availability are
-    determined by the retailer and may change at any time.
-
-  </div>
-
-
-  <!-- ================= NEWSLETTER ================= -->
-
-  <section class="newsletter" id="contact">
-
-    <div class="newsletter-container">
-
-      <h2>
-        Stay Inspired.
-      </h2>
-
-      <p>
-        Get curated home decor finds and interesting products
-        directly in your inbox.
-      </p>
-
-      <form
-        class="newsletter-form"
-        onsubmit="subscribeUser(event)"
-      >
-
-        <input
-          type="email"
-          placeholder="Enter your email address"
-          required
+        <form
+          class="newsletter-form"
+          onsubmit="subscribe(event)"
         >
 
-        <button type="submit">
-          Subscribe
-        </button>
+          <input
+            type="email"
+            id="email"
+            placeholder="Your email address"
+            required
+          >
 
-      </form>
+          <button type="submit">
+            Subscribe
+          </button>
 
-    </div>
+        </form>
 
-  </section>
+      </div>
+
+    </section>
+
+  </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- =========================
+       FOOTER
+  ========================= -->
 
   <footer>
 
     <div class="footer-container">
 
+      <div class="footer-grid">
 
-      <div class="footer-brand">
+        <div class="footer-brand">
 
-        <div class="logo">
-          LUMO<span>RA</span>
+          <div class="logo">
+            LUMO<span>RA</span>
+          </div>
+
+          <p>
+            A modern destination for discovering
+            beautiful home decor, aesthetic accents
+            and interior styling pieces.
+          </p>
+
         </div>
 
-        <p>
-          Curating modern home decor and aesthetic products
-          for people who love beautiful spaces.
-        </p>
+
+        <div class="footer-column">
+
+          <h4>Explore</h4>
+
+          <a href="#home">Home</a>
+          <a href="#shop">Shop</a>
+          <a href="#categories">Categories</a>
+          <a href="#about">About</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Categories</h4>
+
+          <a href="#shop">Figurines</a>
+          <a href="#shop">Spiritual</a>
+          <a href="#shop">Traditional</a>
+          <a href="#shop">Modern</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h4>Information</h4>
+
+          <a href="#about">About Us</a>
+          <a href="#shop">Featured Products</a>
+          <a href="#home">Affiliate Disclosure</a>
+
+        </div>
 
       </div>
 
 
-      <div class="footer-column">
+      <div class="footer-bottom">
 
-        <h4>
-          Explore
-        </h4>
+        <span>
+          © 2026 LUMORA. All rights reserved.
+        </span>
 
-        <a href="#home">
-          Home
-        </a>
-
-        <a href="#products">
-          Products
-        </a>
-
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
+        <span>
+          Product prices and availability may change.
+        </span>
 
       </div>
-
-
-      <div class="footer-column">
-
-        <h4>
-          Information
-        </h4>
-
-        <a href="#">
-          Privacy Policy
-        </a>
-
-        <a href="#">
-          Terms & Conditions
-        </a>
-
-        <a href="#">
-          Affiliate Disclosure
-        </a>
-
-      </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-      © 2026 LUMORA. All rights reserved.
 
     </div>
 
   </footer>
 
 
-  <!-- ================= CHATBOT ================= -->
+  <!-- =========================
+       CHATBOT
+  ========================= -->
 
-  <div class="chat-box" id="chatBox">
+  <button
+    class="chat-button"
+    onclick="toggleChat()"
+    aria-label="Open chat"
+  >
+    💬
+  </button>
+
+
+  <div class="chat-window" id="chatWindow">
 
     <div class="chat-header">
       LUMORA Assistant
@@ -1452,107 +1859,367 @@
 
     <div class="chat-body">
 
-      <p>
-        👋 Hi! Welcome to <strong>LUMORA</strong>.
-      </p>
+      <div class="chat-message" id="chatMessage">
+        Hi! 👋 How can I help you discover your next
+        home decor piece?
+      </div>
 
-      <p>
-        Looking for something to elevate your space?
-      </p>
+      <div class="chat-options">
 
-      <p>
-        We currently have four curated home decor picks
-        available to explore.
-      </p>
+        <button onclick="chatReply('How do I buy a product?')">
+          How do I buy a product?
+        </button>
 
-      <p>
-        Click <strong>View on Amazon</strong> on any product
-        to check the latest price and availability.
-      </p>
+        <button onclick="chatReply('Are these products available on Amazon?')">
+          Are these products available on Amazon?
+        </button>
+
+        <button onclick="chatReply('What is an affiliate store?')">
+          What is an affiliate store?
+        </button>
+
+        <button onclick="chatReply('Show me discounted products')">
+          Show me discounted products
+        </button>
+
+      </div>
 
     </div>
 
   </div>
 
 
-  <button
-    class="chat-button"
-    onclick="toggleChat()"
-    aria-label="Open LUMORA assistant"
-  >
-    💬
-  </button>
-
-
-  <!-- ================= JAVASCRIPT ================= -->
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
   <script>
 
-    /* CHATBOT */
+    let wishlist = [];
 
-    function toggleChat() {
+    /* =========================
+       SEARCH
+    ========================= */
 
-      const chatBox = document.getElementById("chatBox");
+    function focusSearch() {
 
-      if (chatBox.style.display === "block") {
+      const search = document.getElementById("searchInput");
 
-        chatBox.style.display = "none";
+      document.getElementById("shop").scrollIntoView({
+        behavior: "smooth"
+      });
+
+      setTimeout(() => {
+        search.focus();
+      }, 500);
+
+    }
+
+
+    function searchProducts() {
+
+      const searchValue =
+        document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+      const products =
+        document.querySelectorAll(".product-card");
+
+      let visible = 0;
+
+      products.forEach(product => {
+
+        const name =
+          product.dataset.name.toLowerCase();
+
+        const category =
+          product.dataset.category.toLowerCase();
+
+        if (
+          name.includes(searchValue) ||
+          category.includes(searchValue)
+        ) {
+
+          product.style.display = "";
+
+          visible++;
+
+        } else {
+
+          product.style.display = "none";
+
+        }
+
+      });
+
+      document.getElementById("emptyState").style.display =
+        visible === 0 ? "block" : "none";
+
+    }
+
+
+    /* =========================
+       CATEGORY FILTER
+    ========================= */
+
+    function filterProducts() {
+
+      const category =
+        document.getElementById("categoryFilter").value;
+
+      const products =
+        document.querySelectorAll(".product-card");
+
+      let visible = 0;
+
+      products.forEach(product => {
+
+        const productCategories =
+          product.dataset.category.split(" ");
+
+        if (
+          category === "all" ||
+          productCategories.includes(category)
+        ) {
+
+          product.style.display = "";
+
+          visible++;
+
+        } else {
+
+          product.style.display = "none";
+
+        }
+
+      });
+
+      document.getElementById("emptyState").style.display =
+        visible === 0 ? "block" : "none";
+
+    }
+
+
+    function filterCategory(category) {
+
+      document.getElementById("categoryFilter").value =
+        category;
+
+      document.getElementById("shop").scrollIntoView({
+        behavior: "smooth"
+      });
+
+      setTimeout(() => {
+        filterProducts();
+      }, 300);
+
+    }
+
+
+    /* =========================
+       SORT PRODUCTS
+    ========================= */
+
+    function sortProducts() {
+
+      const grid =
+        document.getElementById("productGrid");
+
+      const products =
+        Array.from(
+          grid.querySelectorAll(".product-card")
+        );
+
+      const sortValue =
+        document.getElementById("sortFilter").value;
+
+      if (sortValue === "low") {
+
+        products.sort((a, b) =>
+          Number(a.dataset.price) -
+          Number(b.dataset.price)
+        );
+
+      }
+
+      if (sortValue === "high") {
+
+        products.sort((a, b) =>
+          Number(b.dataset.price) -
+          Number(a.dataset.price)
+        );
+
+      }
+
+      if (sortValue === "discount") {
+
+        products.sort((a, b) =>
+          Number(b.dataset.discount) -
+          Number(a.dataset.discount)
+        );
+
+      }
+
+      products.forEach(product => {
+        grid.appendChild(product);
+      });
+
+    }
+
+
+    /* =========================
+       WISHLIST
+    ========================= */
+
+    function toggleWishlist(button) {
+
+      const card =
+        button.closest(".product-card");
+
+      const productName =
+        card.dataset.name;
+
+      const index =
+        wishlist.indexOf(productName);
+
+      if (index === -1) {
+
+        wishlist.push(productName);
+
+        button.innerHTML = "♥";
 
       } else {
 
-        chatBox.style.display = "block";
+        wishlist.splice(index, 1);
+
+        button.innerHTML = "♡";
+
+      }
+
+      document.getElementById("wishlistCount").textContent =
+        wishlist.length;
+
+    }
+
+
+    function showWishlist() {
+
+      if (wishlist.length === 0) {
+
+        alert(
+          "Your wishlist is empty. Add some products you love!"
+        );
+
+        return;
+
+      }
+
+      alert(
+        "Your Wishlist:\n\n" +
+        wishlist.join("\n")
+      );
+
+    }
+
+
+    /* =========================
+       NEWSLETTER
+    ========================= */
+
+    function subscribe(event) {
+
+      event.preventDefault();
+
+      const email =
+        document.getElementById("email").value;
+
+      alert(
+        "Thanks for subscribing! ✨\n\n" +
+        email
+      );
+
+      document.getElementById("email").value = "";
+
+    }
+
+
+    /* =========================
+       CHATBOT
+    ========================= */
+
+    function toggleChat() {
+
+      document
+        .getElementById("chatWindow")
+        .classList.toggle("active");
+
+    }
+
+
+    function chatReply(question) {
+
+      const message =
+        document.getElementById("chatMessage");
+
+      if (
+        question === "How do I buy a product?"
+      ) {
+
+        message.textContent =
+          "Simply click 'View on Amazon →' on any product. You will be taken to the retailer's website where you can complete your purchase.";
+
+      }
+
+      else if (
+        question ===
+        "Are these products available on Amazon?"
+      ) {
+
+        message.textContent =
+          "The products shown here are selected from Amazon listings. Click the product button to check the current listing, price and availability.";
+
+      }
+
+      else if (
+        question ===
+        "What is an affiliate store?"
+      ) {
+
+        message.textContent =
+          "LUMORA helps you discover products. When you click an affiliate link and make a qualifying purchase, LUMORA may earn a commission at no extra cost to you.";
+
+      }
+
+      else if (
+        question ===
+        "Show me discounted products"
+      ) {
+
+        message.textContent =
+          "Use the 'Best Discount' option in the sorting menu to bring the highest-discount products to the top.";
 
       }
 
     }
 
 
-    /* NEWSLETTER */
+    /* =========================
+       INITIALIZATION
+    ========================= */
 
-    function subscribeUser(event) {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
 
-      event.preventDefault();
+        console.log(
+          "LUMORA Affiliate Store Loaded"
+        );
 
-      const email =
-        event.target.querySelector("input").value;
-
-      alert(
-        "Thanks for subscribing! We will send updates to " +
-        email
-      );
-
-      event.target.reset();
-
-    }
-
-
-    /* SMOOTH NAVIGATION */
-
-    document
-      .querySelectorAll('a[href^="#"]')
-      .forEach(function(link) {
-
-        link.addEventListener("click", function(event) {
-
-          const target =
-            document.querySelector(
-              this.getAttribute("href")
-            );
-
-          if (target) {
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          }
-
-        });
-
-      });
+      }
+    );
 
   </script>
 
